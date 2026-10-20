@@ -145,34 +145,13 @@ h1 { margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.08; letter-s
 .letter-date { display: flex; align-items: center; justify-content: center; gap: 13px; font: 28px/1.1 Georgia, serif; color: var(--rose); margin: 0 0 10px; }
 /* ── Khung ảnh trong thiệp ── */
 .card-portrait-wrap { text-align: center; margin: 4px 0 14px; }
-.card-portrait-btn {
-  position: relative; display: inline-block;
-  width: 110px; height: 110px;
-  border: 0; padding: 0; background: transparent; cursor: pointer;
-  border-radius: 50%;
-}
-.card-portrait-btn img {
-  display: block; width: 100%; height: 100%;
+#cardPortraitImg {
+  display: block; margin: 0 auto;
+  width: 120px; height: 120px;
   border-radius: 50%; object-fit: cover; object-position: center;
-  border: 3px solid #ecd3db;
-  box-shadow: 0 4px 18px #76364d22, 0 0 0 5px #fff6f8;
-  transition: transform .3s ease, box-shadow .3s ease;
+  border: 3.5px solid #ecd3db;
+  box-shadow: 0 4px 20px #76364d22, 0 0 0 5px #fff6f8, 0 0 0 7px #f0d0dc44;
 }
-.card-portrait-btn:hover img, .card-portrait-btn:focus-visible img {
-  transform: scale(1.05);
-  box-shadow: 0 6px 24px #76364d33, 0 0 0 5px #fce8f0;
-}
-.card-portrait-overlay {
-  position: absolute; inset: 0; border-radius: 50%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: rgba(118,54,77,.52); color: #fff;
-  font-size: 18px; line-height: 1.3;
-  opacity: 0; transition: opacity .25s ease;
-  pointer-events: none;
-}
-.card-portrait-overlay small { font-size: 11px; letter-spacing: .3px; margin-top: 2px; }
-.card-portrait-btn:hover .card-portrait-overlay,
-.card-portrait-btn:focus-visible .card-portrait-overlay { opacity: 1; }
 .date-stem { width: 1px; height: 32px; background: var(--line); transform: rotate(25deg); }
 .letter-recipient { margin: 0 0 10px; font-size: 19px; overflow-wrap: anywhere; }
 #cardTitle { margin: 0; font-size: 31px; line-height: 1.2; letter-spacing: -.6px; }

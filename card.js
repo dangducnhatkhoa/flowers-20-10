@@ -3,9 +3,9 @@
 
   const STORAGE_KEY = 'flower.greeting.20-10.v1';
   const defaultGreeting = {
-    recipient: 'bạn',
-    message: 'Nhân ngày Phụ nữ Việt Nam 20/10, chúc bạn luôn khỏe mạnh, bình an và có thật nhiều niềm vui.\n\nMong bạn được yêu thương từ những điều nhỏ nhất, có thời gian cho bản thân và tự tin theo đuổi những điều mình mong muốn.\n\nHôm nay và cả những ngày sau, hãy luôn mỉm cười theo cách của riêng bạn nhé.',
-    sender: 'Một người quý mến bạn'
+    recipient: 'chị Oanh',
+    message: 'Nhân ngày Phụ nữ Việt Nam 20/10, chúc chị Oanh luôn khỏe mạnh, bình an và có thật nhiều niềm vui.\n\nMong chị Oanh được yêu thương từ những điều nhỏ nhất, có thời gian cho bản thân và tự tin theo đuổi những điều mình mong muốn.\n\nHôm nay và cả những ngày sau, hãy luôn mỉm cười theo cách của riêng chị nhé.',
+    sender: 'Một người quý mến chị Oanh'
   };
   const dialog = document.getElementById('greetingCard');
   const openButton = document.getElementById('openCard');
@@ -229,39 +229,4 @@
     revealCard();
   });
   renderGreeting();
-
-  // ── Ảnh chân dung trong thiệp ──
-  const PORTRAIT_KEY = 'flower.greeting.20-10.portrait.v1';
-  const portraitBtn = document.getElementById('cardPortraitBtn');
-  const portraitImg = document.getElementById('cardPortraitImg');
-  const portraitInput = document.getElementById('cardPortraitInput');
-  const defaultPortraitSrc = portraitImg ? portraitImg.getAttribute('src') : '';
-
-  function loadSavedPortrait() {
-    try {
-      const saved = localStorage.getItem(PORTRAIT_KEY);
-      if (saved && portraitImg) portraitImg.src = saved;
-    } catch { /* localStorage không khả dụng */ }
-  }
-
-  if (portraitBtn && portraitInput && portraitImg) {
-    loadSavedPortrait();
-    portraitBtn.addEventListener('click', () => portraitInput.click());
-    portraitInput.addEventListener('change', () => {
-      const file = portraitInput.files && portraitInput.files[0];
-      if (!file) return;
-      if (file.size > 8 * 1024 * 1024) {
-        alert('Ảnh quá lớn. Vui lòng chọn ảnh dưới 8 MB nhé.');
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = e => {
-        const dataUrl = e.target.result;
-        portraitImg.src = dataUrl;
-        try { localStorage.setItem(PORTRAIT_KEY, dataUrl); } catch { /* bỏ qua nếu quota đầy */ }
-      };
-      reader.readAsDataURL(file);
-      portraitInput.value = '';
-    });
-  }
 })();
